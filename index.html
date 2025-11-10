@@ -56,24 +56,8 @@
     window.addEventListener("load", () => document.body.classList.remove("loading"));
   </script>-->
 
-<script>
-  window.addEventListener("load", () => {
-    document.body.classList.remove("loading");
-
-    if (window.Telegram && window.Telegram.WebApp) {
-      const tg = window.Telegram.WebApp;
-
-      tg.ready();
-      tg.expand();
-      tg.enableClosingConfirmation();
-      tg.disableVerticalSwipes();
-
-      console.log("Telegram WebApp is ready:", tg.initData);
-    } else {
-      console.warn("Telegram WebApp not found.");
-    }
-  });
-</script>
+  <script src="/static/js/tg-init.js"></script>
+  <script src="/static/js/load.js"></script>
 
 </body>
 </html>
