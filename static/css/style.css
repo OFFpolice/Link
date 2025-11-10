@@ -1,6 +1,4 @@
-/* style.css — Максимальная производительность */
-
-/* === Общие стили === */
+/* style.css */
 html {
   scroll-behavior: smooth;
 }
@@ -15,12 +13,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-
-  /* Оптимизированный фон */
   background: linear-gradient(135deg, #0d0d0d, #1a1a1a, #000000);
 }
 
-/* === Карточка === */
 .card {
   position: relative;
   z-index: 1;
@@ -94,7 +89,6 @@ h1 {
   outline: none;
 }
 
-/* === Футер === */
 footer {
   margin-top: 25px;
   font-size: 0.85rem;
@@ -111,7 +105,6 @@ footer {
   text-decoration: none;
 }
 
-/* === PRELOADER === */
 #preloader {
   position: fixed;
   top: 0;
@@ -142,7 +135,6 @@ body:not(.loading) #preloader {
   visibility: hidden;
 }
 
-/* === Анимация спиннера === */
 @keyframes spin {
   to {
     transform: rotate(360deg);
