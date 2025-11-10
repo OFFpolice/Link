@@ -63,9 +63,10 @@
     if (window.Telegram && window.Telegram.WebApp) {
       const tg = window.Telegram.WebApp;
 
-      tg.ready(); // уведомляем, что WebApp готов
-      tg.enableClosingConfirmation(); // включаем подтверждение закрытия
-      tg.disableVerticalSwipes(); // отключаем вертикальные свайпы, если нужно
+      tg.ready();
+      tg.expand();
+      tg.enableClosingConfirmation();
+      tg.disableVerticalSwipes();
 
       console.log("Telegram WebApp is ready:", tg.initData);
     } else {
