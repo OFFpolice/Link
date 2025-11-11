@@ -1,30 +1,4 @@
-/* === Базовые переменные (тёмная тема по умолчанию) === */
-:root {
-  --tg-bg-color: #0d0d0d;
-  --tg-bg-secondary: #1a1a1a;
-  --tg-text-color: #f8f8f8;
-  --tg-subtitle-color: #aaaaaa;
-  --tg-button-bg: #e50914;
-  --tg-button-text: #ffffff;
-  --tg-border-color: rgba(255, 255, 255, 0.12);
-  --tg-card-bg: rgba(255, 255, 255, 0.07);
-}
-
-/* === Альтернатива для светлой темы (через prefers-color-scheme) === */
-@media (prefers-color-scheme: light) {
-  :root {
-    --tg-bg-color: #f6f6f6;
-    --tg-bg-secondary: #ffffff;
-    --tg-text-color: #111;
-    --tg-subtitle-color: #666;
-    --tg-button-bg: #e50914;
-    --tg-button-text: #fff;
-    --tg-border-color: rgba(0, 0, 0, 0.1);
-    --tg-card-bg: rgba(0, 0, 0, 0.03);
-  }
-}
-
-/* === Основные стили === */
+/* === Telegram Mini App Adaptive Styles === */
 html {
   scroll-behavior: smooth;
 }
@@ -32,37 +6,40 @@ html {
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  color: var(--tg-text-color);
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-  background: linear-gradient(135deg, var(--tg-bg-color), var(--tg-bg-secondary), #000);
+
+  /* Telegram dynamic colors */
+  background-color: var(--tg-theme-bg-color, #0d0d0d);
+  color: var(--tg-theme-text-color, #f8f8f8);
 }
 
-/* === Карточка === */
+/* === Card === */
 .card {
   position: relative;
   z-index: 1;
   text-align: center;
   padding: 30px 20px;
-  background: var(--tg-card-bg);
+  background: var(--tg-theme-secondary-bg-color, rgba(255, 255, 255, 0.07));
   border-radius: 20px;
-  border: 1px solid var(--tg-border-color);
-  box-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+  border: 1px solid var(--tg-theme-section-separator-color, rgba(255, 255, 255, 0.12));
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
   width: 90%;
   max-width: 420px;
 }
 
+/* === Avatar === */
 .avatar {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto 15px auto;
-  border: 3px solid var(--tg-button-bg);
+  border: 3px solid var(--tg-theme-accent-text-color, #e50914);
   box-shadow: 0 0 15px rgba(229, 9, 20, 0.5);
 }
 
@@ -72,19 +49,21 @@ body {
   object-fit: cover;
 }
 
+/* === Text === */
 h1 {
   font-size: 2rem;
   font-weight: 700;
   margin: 10px 0 5px;
-  color: var(--tg-text-color);
+  color: var(--tg-theme-text-color, #fff);
 }
 
 .subtitle {
   font-size: 1rem;
-  color: var(--tg-subtitle-color);
+  color: var(--tg-theme-hint-color, #aaa);
   margin-bottom: 25px;
 }
 
+/* === Links === */
 .links {
   display: flex;
   flex-direction: column;
@@ -96,46 +75,51 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background: var(--tg-button-bg);
-  border: 1px solid var(--tg-button-bg);
+  background: var(--tg-theme-button-color, #e50914);
+  border: 1px solid var(--tg-theme-button-color, #e50914);
   padding: 14px;
   border-radius: 14px;
-  color: var(--tg-button-text);
+  color: var(--tg-theme-button-text-color, #fff);
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .link-btn:hover,
 .link-btn:active,
 .link-btn:focus {
-  background: var(--tg-button-bg);
-  border-color: var(--tg-button-bg);
-  transform: none;
-  box-shadow: none;
+  background: var(--tg-theme-link-color, #ff0a16);
+  border-color: var(--tg-theme-link-color, #ff0a16);
+  box-shadow: 0 0 8px rgba(229, 9, 20, 0.4);
   outline: none;
 }
 
-/* === Футер === */
+/* === Footer === */
 footer {
   margin-top: 25px;
   font-size: 0.85rem;
-  color: var(--tg-subtitle-color);
+  color: var(--tg-theme-subtitle-text-color, #777);
 }
 
 .footer-link {
-  color: var(--tg-button-bg);
+  color: var(--tg-theme-link-color, #e50914);
   text-decoration: none;
 }
 
-/* === Прелоадер === */
+.footer-link:hover,
+.footer-link:focus {
+  text-decoration: underline;
+}
+
+/* === Preloader === */
 #preloader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--tg-bg-color);
+  background: var(--tg-theme-bg-color, #0d0d0d);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,7 +133,7 @@ footer {
   width: 50px;
   height: 50px;
   border: 4px solid rgba(255, 255, 255, 0.1);
-  border-top-color: var(--tg-button-bg);
+  border-top-color: var(--tg-theme-accent-text-color, #e50914);
   border-radius: 50%;
   animation: spin 0.6s linear infinite;
 }
