@@ -84,7 +84,7 @@ h1 {
   text-decoration: none;
 }
 
-.link-btn:hover,
+/*.link-btn:hover,
 .link-btn:active,
 .link-btn:focus {
   background: var(--tg-theme-link-color, #ff0a16);
@@ -92,7 +92,7 @@ h1 {
   transform: none;
   box-shadow: none;
   outline: none;
-}
+}*/
 
 /* === Footer === */
 footer {
