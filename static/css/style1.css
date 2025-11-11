@@ -109,7 +109,7 @@ footer {
 
 .footer-link:hover,
 .footer-link:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* === Preloader === */
