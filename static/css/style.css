@@ -21,10 +21,10 @@ body {
   z-index: 1;
   text-align: center;
   padding: 30px 20px;
-  background: rgba(255, 255, 255, 0.07); /* чуть прозрачнее, без blur */
+  background: rgba(255, 255, 255, 0.07);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 0 20px rgba(229, 9, 20, 0.4); /* уменьшен blur */
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
   width: 90%;
   max-width: 420px;
 }
