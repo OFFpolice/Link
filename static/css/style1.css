@@ -42,7 +42,7 @@ body {
   box-shadow: 0 0 15px color-mix(in srgb, var(--tg-theme-accent-text-color, #e50914) 50%, transparent);
   user-select: none;
   pointer-events: none;
-  -webkit-userdrag: none;
+  -webkit-user-drag: none;
 }
 
 .avatar img {
