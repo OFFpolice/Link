@@ -1,11 +1,32 @@
+/* === Базовые переменные (тёмная тема по умолчанию) === */
 :root {
   --tg-bg-color: #0d0d0d;
+  --tg-bg-secondary: #1a1a1a;
   --tg-text-color: #f8f8f8;
-  --tg-subtitle-color: #aaa;
+  --tg-subtitle-color: #aaaaaa;
   --tg-button-bg: #e50914;
-  --tg-button-text: #fff;
+  --tg-button-text: #ffffff;
   --tg-border-color: rgba(255, 255, 255, 0.12);
   --tg-card-bg: rgba(255, 255, 255, 0.07);
+}
+
+/* === Альтернатива для светлой темы (через prefers-color-scheme) === */
+@media (prefers-color-scheme: light) {
+  :root {
+    --tg-bg-color: #f6f6f6;
+    --tg-bg-secondary: #ffffff;
+    --tg-text-color: #111;
+    --tg-subtitle-color: #666;
+    --tg-button-bg: #e50914;
+    --tg-button-text: #fff;
+    --tg-border-color: rgba(0, 0, 0, 0.1);
+    --tg-card-bg: rgba(0, 0, 0, 0.03);
+  }
+}
+
+/* === Основные стили === */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,9 +39,10 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-  background: linear-gradient(135deg, var(--tg-bg-color), #1a1a1a, #000000);
+  background: linear-gradient(135deg, var(--tg-bg-color), var(--tg-bg-secondary), #000);
 }
 
+/* === Карточка === */
 .card {
   position: relative;
   z-index: 1;
@@ -29,7 +51,7 @@ body {
   background: var(--tg-card-bg);
   border-radius: 20px;
   border: 1px solid var(--tg-border-color);
-  box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
   width: 90%;
   max-width: 420px;
 }
@@ -44,6 +66,12 @@ body {
   box-shadow: 0 0 15px rgba(229, 9, 20, 0.5);
 }
 
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -55,6 +83,12 @@ h1 {
   font-size: 1rem;
   color: var(--tg-subtitle-color);
   margin-bottom: 25px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .link-btn {
@@ -82,10 +116,11 @@ h1 {
   outline: none;
 }
 
+/* === Футер === */
 footer {
   margin-top: 25px;
   font-size: 0.85rem;
-  color: #777;
+  color: var(--tg-subtitle-color);
 }
 
 .footer-link {
@@ -93,6 +128,7 @@ footer {
   text-decoration: none;
 }
 
+/* === Прелоадер === */
 #preloader {
   position: fixed;
   top: 0;
