@@ -14,7 +14,6 @@ body {
   position: relative;
   background-color: var(--tg-theme-bg-color, #0d0d0d);
   color: var(--tg-theme-text-color, #f8f8f8);
-  user-select: none;
 }
 
 /* === Card === */
@@ -41,6 +40,7 @@ body {
   border: 3px solid var(--tg-theme-accent-text-color, #e50914);
   box-shadow: 0 0 15px rgba(229, 9, 20, 0.5);
   box-shadow: 0 0 15px color-mix(in srgb, var(--tg-theme-accent-text-color, #e50914) 50%, transparent);
+  user-select: none;
 }
 
 .avatar img {
