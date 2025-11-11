@@ -1,4 +1,4 @@
-/* === Telegram Mini App Adaptive Styles === */
+/* === Styles === */
 html {
   scroll-behavior: smooth;
 }
@@ -12,8 +12,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-
-  /* Telegram dynamic colors */
   background-color: var(--tg-theme-bg-color, #0d0d0d);
   color: var(--tg-theme-text-color, #f8f8f8);
 }
