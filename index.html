@@ -75,25 +75,5 @@
     });
   </script>
 
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    if (window.Telegram?.WebApp) {
-      const tg = window.Telegram.WebApp;
-      tg.ready();
-
-      const theme = tg.themeParams || {};
-      const root = document.documentElement;
-
-      if (theme.bg_color) root.style.setProperty("--tg-bg-color", theme.bg_color);
-      if (theme.text_color) root.style.setProperty("--tg-text-color", theme.text_color);
-      if (theme.hint_color) root.style.setProperty("--tg-subtitle-color", theme.hint_color);
-      if (theme.button_color) root.style.setProperty("--tg-button-bg", theme.button_color);
-      if (theme.button_text_color) root.style.setProperty("--tg-button-text", theme.button_text_color);
-
-      tg.expand();
-    }
-  });
-</script>
-
 </body>
 </html>
