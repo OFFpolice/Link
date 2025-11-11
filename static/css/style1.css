@@ -1,4 +1,4 @@
-/* === Styles === */
+/* === style.css === */
 html {
   scroll-behavior: smooth;
 }
@@ -14,6 +14,7 @@ body {
   position: relative;
   background-color: var(--tg-theme-bg-color, #0d0d0d);
   color: var(--tg-theme-text-color, #f8f8f8);
+  user-select: none;
 }
 
 /* === Card === */
