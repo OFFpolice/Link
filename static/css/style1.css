@@ -1,31 +1,36 @@
-/* === Общие стили === */
-html {
-  scroll-behavior: smooth;
+
+:root {
+  --tg-bg-color: #0d0d0d;
+  --tg-text-color: #f8f8f8;
+  --tg-subtitle-color: #aaa;
+  --tg-button-bg: #e50914;
+  --tg-button-text: #fff;
+  --tg-border-color: rgba(255, 255, 255, 0.12);
+  --tg-card-bg: rgba(255, 255, 255, 0.07);
 }
 
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  color: var(--tg-text);
+  color: var(--tg-text-color);
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-  background: var(--tg-bg);
+  background: linear-gradient(135deg, var(--tg-bg-color), #1a1a1a, #000000);
 }
 
-/* === Карточка === */
 .card {
   position: relative;
   z-index: 1;
   text-align: center;
   padding: 30px 20px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--tg-card-bg);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--tg-border-color);
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
   width: 90%;
   max-width: 420px;
 }
@@ -36,33 +41,21 @@ body {
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto 15px auto;
-  border: 3px solid var(--tg-link);
-  box-shadow: 0 0 15px var(--tg-link);
-}
-
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  border: 3px solid var(--tg-button-bg);
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.5);
 }
 
 h1 {
   font-size: 2rem;
   font-weight: 700;
   margin: 10px 0 5px;
-  color: var(--tg-text);
+  color: var(--tg-text-color);
 }
 
 .subtitle {
   font-size: 1rem;
-  color: var(--tg-hint);
+  color: var(--tg-subtitle-color);
   margin-bottom: 25px;
-}
-
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
 }
 
 .link-btn {
@@ -70,8 +63,8 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background: var(--tg-button);
-  border: 1px solid var(--tg-button);
+  background: var(--tg-button-bg);
+  border: 1px solid var(--tg-button-bg);
   padding: 14px;
   border-radius: 14px;
   color: var(--tg-button-text);
@@ -83,38 +76,31 @@ h1 {
 .link-btn:hover,
 .link-btn:active,
 .link-btn:focus {
-  background: var(--tg-button);
-  border-color: var(--tg-button);
+  background: var(--tg-button-bg);
+  border-color: var(--tg-button-bg);
   transform: none;
   box-shadow: none;
   outline: none;
 }
 
-/* === Футер === */
 footer {
   margin-top: 25px;
   font-size: 0.85rem;
-  color: var(--tg-hint);
+  color: #777;
 }
 
 .footer-link {
-  color: var(--tg-link);
+  color: var(--tg-button-bg);
   text-decoration: none;
 }
 
-.footer-link:hover,
-.footer-link:focus {
-  text-decoration: none;
-}
-
-/* === PRELOADER === */
 #preloader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--tg-bg);
+  background: var(--tg-bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,7 +114,7 @@ footer {
   width: 50px;
   height: 50px;
   border: 4px solid rgba(255, 255, 255, 0.1);
-  border-top-color: var(--tg-link);
+  border-top-color: var(--tg-button-bg);
   border-radius: 50%;
   animation: spin 0.6s linear infinite;
 }
