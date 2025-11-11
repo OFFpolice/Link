@@ -66,9 +66,9 @@
         tg.ready();
         tg.expand();
         tg.lockOrientation(portrait);
-        tg.requestFullscreen();
-        tg.disableVerticalSwipes();
         tg.enableClosingConfirmation();
+        tg.disableVerticalSwipes();
+        tg.requestFullscreen();
 
         console.log("Telegram WebApp is ready:", tg.initData);
       } else {
