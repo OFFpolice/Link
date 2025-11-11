@@ -55,12 +55,14 @@ h1 {
   font-weight: 700;
   margin: 10px 0 5px;
   color: var(--tg-theme-text-color, #fff);
+  user-select: none;
 }
 
 .subtitle {
   font-size: 1rem;
   color: var(--tg-theme-hint-color, #aaa);
   margin-bottom: 25px;
+  user-select: none;
 }
 
 /* === Links === */
