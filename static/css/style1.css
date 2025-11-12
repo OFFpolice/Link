@@ -108,6 +108,10 @@ h1 {
   transform: none !important;
 }
 
+a, button {
+  outline: none !important;
+}
+
 /*.link-btn:hover,
 .link-btn:active,
 .link-btn:focus {
