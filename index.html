@@ -65,11 +65,11 @@
 
         tg.ready();
         tg.expand();
-        tg.lockOrientation();
+        tg.setHeaderColor('bg_color');
         tg.enableClosingConfirmation();
         tg.disableVerticalSwipes();
+        tg.lockOrientation();
         tg.requestFullscreen();
-        tg.setHeaderColor('bg_color');
 
         console.log("Telegram WebApp is ready:", tg.initData);
       } else {
