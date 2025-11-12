@@ -86,6 +86,7 @@ h1 {
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
+  user-select: none;
 }
 
 .link-btn:hover,
