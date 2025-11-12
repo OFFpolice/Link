@@ -97,7 +97,18 @@ h1 {
   user-select: none;
 }
 
-.link-btn:hover,
+.link-btn,
+.link-btn:active,
+.link-btn:focus,
+.link-btn:focus-visible {
+  background: var(--tg-theme-button-color, #e50914) !important;
+  border-color: var(--tg-theme-button-color, #e50914) !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/*.link-btn:hover,
 .link-btn:active,
 .link-btn:focus {
   background: var(--tg-theme-link-color, #ff0a16);
@@ -105,7 +116,7 @@ h1 {
   transform: none;
   box-shadow: none;
   outline: none;
-}
+}*/
 
 /* === Footer === */
 footer {
