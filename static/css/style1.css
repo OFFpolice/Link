@@ -1,6 +1,7 @@
 /* === style.css === */
 * {
   -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
