@@ -63,14 +63,14 @@
       if (window.Telegram && window.Telegram.WebApp) {
         const tg = window.Telegram.WebApp;
 
-        tg.ready();
-        tg.expand();
         tg.setHeaderColor('bg_color');
         tg.setBackgroundColor('#0d0d0d');
         tg.enableClosingConfirmation();
         tg.disableVerticalSwipes();
         tg.lockOrientation();
         tg.requestFullscreen();
+        tg.ready();
+        tg.expand();
 
         console.log("Telegram WebApp is ready:", tg.initData);
       } else {
