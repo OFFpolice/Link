@@ -38,7 +38,7 @@ body {
   overflow: hidden;
   margin: 0 auto 15px auto;
   border: 3px solid var(--tg-theme-accent-text-color, #e50914);
-  box-shadow: 0 0 15px color-mix(in srgb, var(--tg-theme-accent-text-color, #e50914) 70%, transparent);
+  box-shadow: 0 0 25px color-mix(in srgb, var(--tg-theme-accent-text-color, #e50914) 70%, transparent);
 }
 
 .avatar img {
