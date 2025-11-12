@@ -4,6 +4,9 @@ html {
 }
 
 body {
+  height: var(--tg-viewport-stable-height, 100vh);
+  padding-top: env(safe-area-inset-top, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
   margin: 0;
   font-family: "Poppins", sans-serif;
   display: flex;
