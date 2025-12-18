@@ -112,16 +112,6 @@ a, button {
   outline: none !important;
 }
 
-/*.link-btn:hover,
-.link-btn:active,
-.link-btn:focus {
-  background: var(--tg-theme-link-color, #ff0a16);
-  border-color: var(--tg-theme-link-color, #ff0a16);
-  transform: none;
-  box-shadow: none;
-  outline: none;
-}*/
-
 /* === Footer === */
 footer {
   margin-top: 25px;
