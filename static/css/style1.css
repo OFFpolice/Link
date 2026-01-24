@@ -1,9 +1,15 @@
+/* =========================================================
+   Telegram WebApp – Safe Area & Viewport Variables
+   ========================================================= */
 :root {
   --tg-safe-area-inset-top: env(safe-area-inset-top, 0px);
   --tg-content-safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
   --tg-viewport-height: 100vh;
 }
 
+/* =========================================================
+   Global Reset
+   ========================================================= */
 * {
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -16,66 +22,105 @@ html {
   scroll-behavior: smooth;
 }
 
+/* =========================================================
+   Body / App Root
+   ========================================================= */
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   min-height: var(--tg-viewport-height);
   padding-top: var(--tg-safe-area-inset-top);
   padding-bottom: var(--tg-content-safe-area-inset-bottom);
+
   overflow-x: hidden;
   position: relative;
+
   background-color: var(--tg-theme-secondary-bg-color, #0d0d0d);
   color: var(--tg-theme-text-color, #f8f8f8);
 }
 
+/* =========================================================
+   Card
+   ========================================================= */
 .card {
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 30px 20px;
-  padding-bottom: calc(30px + var(--tg-content-safe-area-inset-bottom));
-  background: var(--tg-theme-bg-color, rgba(255, 255, 255, 0.07));
-  border-radius: 20px;
-  border: 1px solid var(--tg-theme-section-separator-color, rgba(255, 255, 255, 0.12));
-  box-shadow: 0 0 25px color-mix(in srgb, var(--tg-theme-accent-text-color, #e50914) 50%, transparent);
+
   width: 90%;
   max-width: 420px;
+
+  padding: 30px 20px;
+  padding-bottom: calc(30px + var(--tg-content-safe-area-inset-bottom));
+
+  background: var(--tg-theme-bg-color, rgba(255, 255, 255, 0.07));
+  border-radius: 20px;
+  border: 1px solid var(
+    --tg-theme-section-separator-color,
+    rgba(255, 255, 255, 0.12)
+  );
+
+  box-shadow: 0 0 25px
+    color-mix(
+      in srgb,
+      var(--tg-theme-accent-text-color, #e50914) 50%,
+      transparent
+    );
 }
 
+/* =========================================================
+   Avatar
+   ========================================================= */
 .avatar {
   width: 120px;
   height: 120px;
+  margin: 0 auto 15px;
+
   border-radius: 50%;
   overflow: hidden;
-  margin: 0 auto 15px auto;
+
   border: 3px solid var(--tg-theme-accent-text-color, #e50914);
-  box-shadow: 0 0 25px color-mix(in srgb, var(--tg-theme-accent-text-color, #e50914) 70%, transparent);
+  box-shadow: 0 0 25px
+    color-mix(
+      in srgb,
+      var(--tg-theme-accent-text-color, #e50914) 70%,
+      transparent
+    );
 }
 
 .avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
   pointer-events: none;
   -webkit-user-drag: none;
 }
 
+/* =========================================================
+   Text
+   ========================================================= */
 h1 {
+  margin: 10px 0 5px;
   font-size: 2rem;
   font-weight: 700;
-  margin: 10px 0 5px;
-  color: var(--tg-theme-text-color, #fff);
+  color: var(--tg-theme-text-color, #ffffff);
 }
 
 .subtitle {
-  font-size: 1rem;
-  color: var(--tg-theme-hint-color, #aaa);
   margin-bottom: 25px;
+  font-size: 1rem;
+  color: var(--tg-theme-hint-color, #aaaaaa);
 }
 
+/* =========================================================
+   Links / Buttons
+   ========================================================= */
 .links {
   display: flex;
   flex-direction: column;
@@ -87,11 +132,14 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background: var(--tg-theme-button-color, #e50914);
-  border: 1px solid var(--tg-theme-button-color, #e50914);
+
   padding: 14px;
   border-radius: 14px;
-  color: var(--tg-theme-button-text-color, #fff);
+
+  background: var(--tg-theme-button-color, #e50914);
+  border: 1px solid var(--tg-theme-button-color, #e50914);
+
+  color: var(--tg-theme-button-text-color, #ffffff);
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
@@ -113,10 +161,13 @@ button {
   outline: none !important;
 }
 
+/* =========================================================
+   Footer
+   ========================================================= */
 footer {
   margin-top: 25px;
   font-size: 0.85rem;
-  color: var(--tg-theme-subtitle-text-color, #777);
+  color: var(--tg-theme-subtitle-text-color, #777777);
 }
 
 .footer-link {
@@ -129,15 +180,22 @@ footer {
   text-decoration: none;
 }
 
+/* =========================================================
+   Preloader
+   ========================================================= */
 #preloader {
   position: fixed;
   inset: 0;
+
   height: var(--tg-viewport-height);
-  background: var(--tg-theme-bg-color, #0d0d0d);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background: var(--tg-theme-bg-color, #0d0d0d);
   z-index: 9999;
+
   opacity: 1;
   visibility: visible;
   transition: opacity 0.5s ease, visibility 0.5s ease;
@@ -146,9 +204,11 @@ footer {
 .spinner {
   width: 50px;
   height: 50px;
+
   border: 4px solid rgba(255, 255, 255, 0.1);
   border-top-color: var(--tg-theme-accent-text-color, #e50914);
   border-radius: 50%;
+
   animation: spin 0.6s linear infinite;
 }
 
