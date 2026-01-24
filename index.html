@@ -70,5 +70,60 @@
     });
   </script>
 
+<script>
+(() => {
+  if (!window.Telegram || !Telegram.WebApp) return;
+
+  const tg = Telegram.WebApp;
+  const root = document.documentElement;
+
+  function px(value) {
+    return typeof value === "number" ? value + "px" : "0px";
+  }
+
+  function syncViewport() {
+    const height =
+      tg.viewportStableHeight ||
+      tg.viewportHeight ||
+      window.innerHeight;
+
+    root.style.setProperty("--tg-viewport-height", height + "px");
+  }
+
+  function syncSafeArea() {
+    const inset = tg.safeAreaInset || {};
+    const contentInset = tg.contentSafeAreaInset || {};
+
+    root.style.setProperty(
+      "--tg-safe-area-inset-top",
+      px(inset.top)
+    );
+
+    root.style.setProperty(
+      "--tg-content-safe-area-inset-bottom",
+      px(contentInset.bottom)
+    );
+  }
+
+  function syncAll() {
+    syncViewport();
+    syncSafeArea();
+  }
+
+  tg.ready();
+  tg.expand();
+
+  syncAll();
+
+  tg.onEvent("viewportChanged", syncViewport);
+
+  if (tg.onEvent && tg.safeAreaInset !== undefined) {
+    tg.onEvent("safeAreaChanged", syncSafeArea);
+  }
+
+  window.addEventListener("resize", syncViewport);
+})();
+</script>
+
 </body>
 </html>
