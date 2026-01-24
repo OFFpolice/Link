@@ -49,7 +49,7 @@
   </div>
 
   <!-- === JS === -->
-  <script>
+  <!--<script>
     window.addEventListener("load", () => {
       document.body.classList.remove("loading");
 
@@ -68,60 +68,90 @@
         console.warn("Telegram WebApp not found.");
       }
     });
-  </script>
+  </script>-->
+
 
 <script>
 (() => {
-  if (!window.Telegram || !Telegram.WebApp) return;
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.remove("loading");
 
-  const tg = Telegram.WebApp;
-  const root = document.documentElement;
+    if (!window.Telegram || !Telegram.WebApp) {
+      console.warn("Telegram WebApp not found.");
+      return;
+    }
 
-  function px(value) {
-    return typeof value === "number" ? value + "px" : "0px";
-  }
+    const tg = Telegram.WebApp;
+    const root = document.documentElement;
 
-  function syncViewport() {
-    const height =
-      tg.viewportStableHeight ||
-      tg.viewportHeight ||
-      window.innerHeight;
+    /* ===============================
+       Telegram Init
+       =============================== */
+    tg.ready();
+    tg.expand();
 
-    root.style.setProperty("--tg-viewport-height", height + "px");
-  }
+    if (tg.isVersionAtLeast("8.0")) {
+      tg.requestFullscreen();
+      tg.lockOrientation();
+    }
 
-  function syncSafeArea() {
-    const inset = tg.safeAreaInset || {};
-    const contentInset = tg.contentSafeAreaInset || {};
+    tg.enableClosingConfirmation();
+    tg.disableVerticalSwipes();
 
-    root.style.setProperty(
-      "--tg-safe-area-inset-top",
-      px(inset.top)
-    );
+    /* ===============================
+       Helpers
+       =============================== */
+    const px = v => (typeof v === "number" ? `${v}px` : "0px");
 
-    root.style.setProperty(
-      "--tg-content-safe-area-inset-bottom",
-      px(contentInset.bottom)
-    );
-  }
+    /* ===============================
+       Viewport Sync
+       =============================== */
+    function syncViewport() {
+      const height =
+        tg.viewportStableHeight ||
+        tg.viewportHeight ||
+        window.innerHeight;
 
-  function syncAll() {
-    syncViewport();
-    syncSafeArea();
-  }
+      root.style.setProperty("--tg-viewport-height", `${height}px`);
+    }
 
-  tg.ready();
-  tg.expand();
+    /* ===============================
+       Safe Area Sync
+       =============================== */
+    function syncSafeArea() {
+      const safe = tg.safeAreaInset || {};
+      const content = tg.contentSafeAreaInset || {};
 
-  syncAll();
+      root.style.setProperty("--tg-safe-area-inset-top", px(safe.top));
+      root.style.setProperty(
+        "--tg-content-safe-area-inset-bottom",
+        px(content.bottom)
+      );
+    }
 
-  tg.onEvent("viewportChanged", syncViewport);
+    /* ===============================
+       Sync All
+       =============================== */
+    function syncAll() {
+      syncViewport();
+      syncSafeArea();
+    }
 
-  if (tg.onEvent && tg.safeAreaInset !== undefined) {
-    tg.onEvent("safeAreaChanged", syncSafeArea);
-  }
+    syncAll();
 
-  window.addEventListener("resize", syncViewport);
+    /* ===============================
+       Events
+       =============================== */
+    tg.onEvent("viewportChanged", syncViewport);
+
+    if (tg.safeAreaInset !== undefined) {
+      tg.onEvent("safeAreaChanged", syncSafeArea);
+    }
+
+    window.addEventListener("resize", syncViewport);
+
+    console.log("Telegram WebApp initialized");
+  });
 })();
 </script>
 
