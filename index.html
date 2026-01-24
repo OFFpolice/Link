@@ -49,7 +49,7 @@
   </div>
 
   <!-- === JS === -->
-  <!--<script>
+  <script>
     window.addEventListener("load", () => {
       document.body.classList.remove("loading");
 
@@ -68,92 +68,7 @@
         console.warn("Telegram WebApp not found.");
       }
     });
-  </script>-->
-
-
-<script>
-(() => {
-  document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.remove("loading");
-
-    if (!window.Telegram || !Telegram.WebApp) {
-      console.warn("Telegram WebApp not found.");
-      return;
-    }
-
-    const tg = Telegram.WebApp;
-    const root = document.documentElement;
-
-    /* ===============================
-       Telegram Init
-       =============================== */
-    tg.ready();
-    tg.expand();
-
-    if (tg.isVersionAtLeast("8.0")) {
-      tg.requestFullscreen();
-      tg.lockOrientation();
-    }
-
-    tg.enableClosingConfirmation();
-    tg.disableVerticalSwipes();
-
-    /* ===============================
-       Helpers
-       =============================== */
-    const px = v => (typeof v === "number" ? `${v}px` : "0px");
-
-    /* ===============================
-       Viewport Sync
-       =============================== */
-    function syncViewport() {
-      const height =
-        tg.viewportStableHeight ||
-        tg.viewportHeight ||
-        window.innerHeight;
-
-      root.style.setProperty("--tg-viewport-height", `${height}px`);
-    }
-
-    /* ===============================
-       Safe Area Sync
-       =============================== */
-    function syncSafeArea() {
-      const safe = tg.safeAreaInset || {};
-      const content = tg.contentSafeAreaInset || {};
-
-      root.style.setProperty("--tg-safe-area-inset-top", px(safe.top));
-      root.style.setProperty(
-        "--tg-content-safe-area-inset-bottom",
-        px(content.bottom)
-      );
-    }
-
-    /* ===============================
-       Sync All
-       =============================== */
-    function syncAll() {
-      syncViewport();
-      syncSafeArea();
-    }
-
-    syncAll();
-
-    /* ===============================
-       Events
-       =============================== */
-    tg.onEvent("viewportChanged", syncViewport);
-
-    if (tg.safeAreaInset !== undefined) {
-      tg.onEvent("safeAreaChanged", syncSafeArea);
-    }
-
-    window.addEventListener("resize", syncViewport);
-
-    console.log("Telegram WebApp initialized");
-  });
-})();
-</script>
+  </script>
 
 </body>
 </html>
