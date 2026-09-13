@@ -5,10 +5,9 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
   >
 
-  <!-- TITLE -->
   <title>OFFpolice — Official Links</title>
 
   <meta
@@ -23,7 +22,6 @@
 
   <meta name="author" content="OFFpolice">
 
-  <!-- Search engine indexing -->
   <meta
     name="robots"
     content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
@@ -34,10 +32,11 @@
     content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
   >
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://offpolice.run.place/">
+  <link
+    rel="canonical"
+    href="https://offpolice.run.place/"
+  >
 
-  <!-- Favicon -->
   <link
     rel="icon"
     href="./static/icon/favicon.ico"
@@ -49,13 +48,69 @@
     href="https://raw.githubusercontent.com/OFFpolice/my/refs/heads/main/static/avatars/offpolice.webp"
   >
 
-  <!-- Theme -->
-  <meta name="theme-color" content="#000000">
+  <!-- Browser / System Theme -->
+  <meta
+    name="theme-color"
+    content="#000000"
+    id="theme-color"
+  >
+
+  <meta
+    name="color-scheme"
+    content="dark"
+  >
+
+  <!-- Android -->
+  <meta
+    name="mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="application-name"
+    content="OFFpolice"
+  >
+
+  <!-- iOS -->
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  >
+
+  <meta
+    name="apple-mobile-web-app-title"
+    content="OFFpolice"
+  >
+
+  <!-- Windows -->
+  <meta
+    name="msapplication-TileColor"
+    content="#000000"
+  >
+
+  <!-- PWA -->
+  <link
+    rel="manifest"
+    href="./manifest.json"
+  >
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://offpolice.run.place/">
-  <meta property="og:title" content="OFFpolice — Official Links">
+
+  <meta
+    property="og:url"
+    content="https://offpolice.run.place/"
+  >
+
+  <meta
+    property="og:title"
+    content="OFFpolice — Official Links"
+  >
 
   <meta
     property="og:description"
@@ -67,13 +122,26 @@
     content="https://videotourl.com/images/1788799093328-78f961f8-7aa6-4b67-9b0e-f0c9cdb83b1a.jpg"
   >
 
-  <meta property="og:image:alt" content="OFFpolice">
+  <meta
+    property="og:image:alt"
+    content="OFFpolice"
+  >
 
-  <meta property="og:site_name" content="OFFpolice">
+  <meta
+    property="og:site_name"
+    content="OFFpolice"
+  >
 
   <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="OFFpolice — Official Links">
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="OFFpolice — Official Links"
+  >
 
   <meta
     name="twitter:description"
@@ -101,12 +169,13 @@
   }
   </script>
 
-  <!-- Styles -->
+  <!-- Bootstrap Icons -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     rel="stylesheet"
   >
 
+  <!-- Main Styles -->
   <link
     rel="stylesheet"
     href="./static/css/style.css?v=0.0.0.5"
@@ -117,6 +186,37 @@
     src="https://telegram.org/js/telegram-web-app.js?59"
   ></script>
 
+  <!-- Initial Theme Synchronization -->
+  <script>
+    (() => {
+      const THEME_COLOR = "#000000";
+
+      document.documentElement.style.backgroundColor = THEME_COLOR;
+
+      const themeMeta = document.querySelector(
+        'meta[name="theme-color"]'
+      );
+
+      if (themeMeta) {
+        themeMeta.setAttribute(
+          "content",
+          THEME_COLOR
+        );
+      }
+
+      const tileMeta = document.querySelector(
+        'meta[name="msapplication-TileColor"]'
+      );
+
+      if (tileMeta) {
+        tileMeta.setAttribute(
+          "content",
+          THEME_COLOR
+        );
+      }
+    })();
+  </script>
+
 </head>
 
 <body class="loading">
@@ -126,7 +226,7 @@
     <div class="spinner"></div>
   </div>
 
-  <!-- Main content -->
+  <!-- Main Content -->
   <main class="card">
 
     <header>
@@ -149,7 +249,7 @@
 
     </header>
 
-    <!-- Social links -->
+    <!-- Social Links -->
     <nav
       class="links"
       aria-label="OFFpolice social media links"
@@ -162,7 +262,11 @@
         class="link-btn"
         aria-label="OFFpolice on Telegram"
       >
-        <i class="bi bi-telegram" aria-hidden="true"></i>
+        <i
+          class="bi bi-telegram"
+          aria-hidden="true"
+        ></i>
+
         Telegram
       </a>
 
@@ -173,7 +277,11 @@
         class="link-btn"
         aria-label="OFFpolice on Instagram"
       >
-        <i class="bi bi-instagram" aria-hidden="true"></i>
+        <i
+          class="bi bi-instagram"
+          aria-hidden="true"
+        ></i>
+
         Instagram
       </a>
 
@@ -206,6 +314,7 @@
 
       <p>
         © 2026
+
         <a
           href="https://telegram.me/OFFpolice"
           target="_blank"
@@ -226,21 +335,90 @@
 
       document.body.classList.remove("loading");
 
-      if (window.Telegram && window.Telegram.WebApp) {
+      const THEME_COLOR = "#000000";
 
-        const tg = window.Telegram.WebApp;
+      document.documentElement.style.backgroundColor =
+        THEME_COLOR;
+
+      document.body.style.backgroundColor =
+        THEME_COLOR;
+
+      const themeMeta = document.querySelector(
+        'meta[name="theme-color"]'
+      );
+
+      if (themeMeta) {
+        themeMeta.setAttribute(
+          "content",
+          THEME_COLOR
+        );
+      }
+
+      const tileMeta = document.querySelector(
+        'meta[name="msapplication-TileColor"]'
+      );
+
+      if (tileMeta) {
+        tileMeta.setAttribute(
+          "content",
+          THEME_COLOR
+        );
+      }
+
+      if (
+        window.Telegram &&
+        window.Telegram.WebApp
+      ) {
+
+        const tg =
+          window.Telegram.WebApp;
 
         tg.ready();
+
         tg.expand();
 
+        if (
+          typeof tg.setHeaderColor ===
+          "function"
+        ) {
+          tg.setHeaderColor(
+            THEME_COLOR
+          );
+        }
+
+        if (
+          typeof tg.setBackgroundColor ===
+          "function"
+        ) {
+          tg.setBackgroundColor(
+            THEME_COLOR
+          );
+        }
+
+        if (
+          typeof tg.setBottomBarColor ===
+          "function"
+        ) {
+          tg.setBottomBarColor(
+            THEME_COLOR
+          );
+        }
+
         tg.enableClosingConfirmation();
+
         tg.disableVerticalSwipes();
 
-        if (typeof tg.requestFullscreen === "function") {
+        if (
+          typeof tg.requestFullscreen ===
+          "function"
+        ) {
           tg.requestFullscreen();
         }
 
-        if (typeof tg.lockOrientation === "function") {
+        if (
+          typeof tg.lockOrientation ===
+          "function"
+        ) {
           tg.lockOrientation();
         }
 
